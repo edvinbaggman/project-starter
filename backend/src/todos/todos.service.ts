@@ -14,19 +14,13 @@ export class TodosService {
     return (await this.fb.getAllDocuments('todos')) as Todo[];
   }
 
-  async create(id: string): Promise<void> {
-    const docData: Todo = {
-      stringField: 'Hello world!',
-      numberField: 5,
-    };
-    await this.fb.setDocument('todos', id, docData);
+  async create(id: string, todo: Todo): Promise<void> {
+    todo.id = id;
+    await this.fb.setDocument('todos', id, todo);
   }
 
-  async update(id: string): Promise<void> {
-    const docData: Partial<Todo> = {
-      stringField: 'Hello world again!',
-    };
-    await this.fb.updateDocument('todos', id, docData);
+  async update(id: string, todo: Partial<Todo>): Promise<void> {
+    await this.fb.updateDocument('todos', id, todo);
   }
 
   async delete(id: string): Promise<void> {

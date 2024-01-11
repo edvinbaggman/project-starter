@@ -1,4 +1,5 @@
 import {
+  Body,
   Controller,
   Delete,
   Get,
@@ -28,14 +29,14 @@ export class TodosController {
 
   @Post(':id')
   @UseGuards(AuthGuard)
-  create(@Param('id') id: string): Promise<void> {
-    return this.todoService.create(id);
+  create(@Param('id') id: string, @Body() todo: Todo): Promise<void> {
+    return this.todoService.create(id, todo);
   }
 
   @Patch(':id')
   @UseGuards(AuthGuard)
-  update(@Param('id') id: string): Promise<void> {
-    return this.todoService.update(id);
+  update(@Param('id') id: string, @Body() todo: Partial<Todo>): Promise<void> {
+    return this.todoService.update(id, todo);
   }
 
   @Delete(':id')
