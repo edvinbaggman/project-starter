@@ -3,6 +3,7 @@ import { useAuth } from '../hooks/useAuth';
 import {
   ArrowRightEndOnRectangleIcon,
   ArrowRightStartOnRectangleIcon,
+  DocumentChartBarIcon,
 } from '@heroicons/react/24/outline';
 
 const Home = () => {
@@ -27,6 +28,14 @@ const Home = () => {
       <button disabled={!user} className='btn w-full mt-4' onClick={signout}>
         <ArrowRightStartOnRectangleIcon className='h-5' />
         Sign out
+      </button>
+      <button
+        disabled={!user}
+        className='btn w-full mt-4'
+        onClick={() => navigate('/dashboard')}
+      >
+        <DocumentChartBarIcon className='h-5' />
+        Dashboard
       </button>
     </div>
   );

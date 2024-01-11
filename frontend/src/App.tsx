@@ -4,6 +4,8 @@ import Signin from './pages/Signin';
 import Layout from './components/Layout';
 import Register from './pages/Register';
 import ResetPassword from './pages/ResetPassword';
+import Dashboard from './pages/Dashboard';
+import ProtectedRoute from './components/ProtectedRoute';
 
 const router = createBrowserRouter([
   {
@@ -12,6 +14,16 @@ const router = createBrowserRouter([
       <Layout>
         <Home />
       </Layout>
+    ),
+  },
+  {
+    path: '/dashboard',
+    element: (
+      <ProtectedRoute>
+        <Layout>
+          <Dashboard />
+        </Layout>
+      </ProtectedRoute>
     ),
   },
   {
