@@ -9,7 +9,7 @@ interface FormValues {
   id: string;
 }
 
-const LogTodoForm = () => {
+const GetTodoForm = () => {
   const initFormValues = {
     id: '',
   };
@@ -19,7 +19,7 @@ const LogTodoForm = () => {
     id: Yup.string().required(errorText),
   });
 
-  const handleLogTodo = async (values: FormValues) => {
+  const handleGetTodo = async (values: FormValues) => {
     const id = values.id;
     const { status, data, error, errorMsg } = await getTodo(id);
     console.log('Status code: ' + status);
@@ -32,19 +32,19 @@ const LogTodoForm = () => {
 
   return (
     <div className='pt-4 pb-4'>
-      <h1 className='text-md font-bold'>Log todo!</h1>
+      <h1 className='text-md font-bold'>Get todo!</h1>
       <Formik
         initialValues={initFormValues}
         validationSchema={formValidation}
         onSubmit={async (values) => {
-          await handleLogTodo(values);
+          await handleGetTodo(values);
         }}
       >
         {({ isSubmitting }) => (
           <Form>
             <CustomInput name='id' label='Id' type='text' />
             <SubmitButton
-              text='Log todo'
+              text='Get todo'
               isSubmitting={isSubmitting}
               startIcon={<DocumentIcon />}
             />
@@ -55,4 +55,4 @@ const LogTodoForm = () => {
   );
 };
 
-export default LogTodoForm;
+export default GetTodoForm;

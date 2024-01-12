@@ -1,20 +1,20 @@
 import BackButton from '../components/BackButton';
-import LogTodoForm from '../components/forms/todos/LogTodoForm';
-import LogTodosForm from '../components/forms/todos/LogTodosForm';
+import GetTodoForm from '../components/forms/todos/GetTodoForm';
+import GetTodosForm from '../components/forms/todos/GetTodosForm';
 import CreateTodoForm from '../components/forms/todos/CreateTodoForm';
 import UpdateTodoForm from '../components/forms/todos/UpdateTodoForm';
 import DeleteTodoForm from '../components/forms/todos/DeleteTodoForm';
 import { useState } from 'react';
 
 const Dashboard = () => {
-  const [selectedForm, setSelectedForm] = useState('logTodo');
+  const [selectedForm, setSelectedForm] = useState('getTodo');
 
   const renderForm = () => {
     switch (selectedForm) {
-      case 'logTodo':
-        return <LogTodoForm />;
-      case 'logTodos':
-        return <LogTodosForm />;
+      case 'getTodo':
+        return <GetTodoForm />;
+      case 'getTodos':
+        return <GetTodosForm />;
       case 'createTodo':
         return <CreateTodoForm />;
       case 'updateTodo':
@@ -33,19 +33,19 @@ const Dashboard = () => {
       <div className='flex justify-between mt-4'>
         <button
           className={`btn w-16 ${
-            selectedForm === 'logTodo' ? 'bg-gray-400' : 'bg-gray-200'
+            selectedForm === 'getTodo' ? 'bg-gray-400' : 'bg-gray-200'
           }`}
-          onClick={() => setSelectedForm('logTodo')}
+          onClick={() => setSelectedForm('getTodo')}
         >
-          Log Todo
+          Get Todo
         </button>
         <button
           className={`btn w-16 ${
-            selectedForm === 'logTodos' ? 'bg-gray-400' : 'bg-gray-200'
+            selectedForm === 'getTodos' ? 'bg-gray-400' : 'bg-gray-200'
           }`}
-          onClick={() => setSelectedForm('logTodos')}
+          onClick={() => setSelectedForm('getTodos')}
         >
-          Log Todos
+          Get Todos
         </button>
         <button
           className={`btn w-16 ${
