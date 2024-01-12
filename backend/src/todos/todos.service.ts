@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { Todo } from '../common/interfaces/todo.interface';
 import { FirebaseService } from '../firebase/firebase.service';
+import { Todo } from './models/todo.interface';
 
 @Injectable()
 export class TodosService {
